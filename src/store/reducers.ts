@@ -11,13 +11,14 @@ let initialState: AppState = {
 const RootReducer: Reducer = function (state = initialState, action: any) {
     switch (action.type) {
         case SET_FILTERS:
-            Object.assign({}, state, { filters: { ...action.filters } })
+           return Object.assign({}, state, { filters: { ...action.filters } })
             break
         case GET_HOTELS:
+            console.log('get hotels')
             return state.hotels;
             break;
         case SET_HOTELS:
-            Object.assign({}, state, {
+           return   Object.assign({}, state, {
                 hotels: state.hotels.concat(action.hotels)
             })
             break;

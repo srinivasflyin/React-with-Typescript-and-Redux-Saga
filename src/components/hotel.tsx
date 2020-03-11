@@ -1,34 +1,19 @@
 import React, { Component } from 'react'
-import  { FilterClass }  from '../shared/classesAndInterfaces' 
+import  { FilterClass, AppState, HotelProps }  from '../shared/classesAndInterfaces' 
 import List   from '../components/list'
- export class Hotel extends Component {
-    public hotels: Array<any> = [{
-        country: 'Austrailia',
-        city: 'perth',
-        imgUrl:
-          "hotel1.jpg",
-        name: "Hilton Dubai Al Habtoor City"
-      },
-      {
-        country: 'Austrailia',
-        city: 'perth',        
-        imgUrl:
-          "hotel2.jpg",
-        name: "Sea View Hotel Dubai"
-      }];
-    public filteredHotels: Array<any> = this.hotels;
-    constructor(props: FilterClass) {
+import { connect } from 'react-redux'
+  class Hotel extends Component<HotelProps> {
+    public hotels: Array<any> = []
+    public filteredHotels: Array<any> = [];
+    constructor(props: HotelProps) {
         super(props)
     }
-    componentDidMount() {
-        this.getHotels()
-    }
-    getHotels() {
-        //this.hotels = this.$store.getters.GET_HOTELS;
-        if (this.filteredHotels.length === 0) {
-          this.filteredHotels = JSON.parse(JSON.stringify(this.hotels));
-        }
-      }
+    // getHotels() {
+    //     //this.hotels = this.$store.getters.GET_HOTELS;
+    //     if (this.filteredHotels.length === 0) {
+    //       this.filteredHotels = JSON.parse(JSON.stringify(this.hotels));
+    //     }
+    //   }
       searchHotels(filters: FilterClass) {
         const htlValues: Array<any> = [];
     
@@ -47,8 +32,21 @@ import List   from '../components/list'
         }
       }
       render () {
+           //this.hotels = this.$store.getters.GET_HOTELS;
+        if (this.filteredHotels.length === 0) {
+            this.filteredHotels = JSON.parse(JSON.stringify(this.props.hotels));
+          }
           return (<div>
             <List items={this.filteredHotels} />
           </div>)
       }
 }
+
+
+const mapStateToProps = (state: AppState) => {
+    return {
+        hotels: state.hotels
+    }
+}
+
+export default connect(mapStateToProps, null)(Hotel)

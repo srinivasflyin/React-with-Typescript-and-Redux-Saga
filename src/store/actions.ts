@@ -14,8 +14,8 @@ export function setHotels(hotels: Array<HotelObj>) {
 
 export function getHotels() {
     return function (dispatch: ThunkDispatch<{}, {}, AnyAction>) {
-        return axios.get('./tempData/hotels.json').then((response) => {
-            const hotels = response.data
+        return axios.get('./tempData/hotels.json').then((response: any) => {
+            const hotels = response.data.hotels
             dispatch({ type: SET_HOTELS, hotels })
         })
 

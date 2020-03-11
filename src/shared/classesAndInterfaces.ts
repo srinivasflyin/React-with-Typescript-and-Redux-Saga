@@ -59,3 +59,7 @@ export interface Props {
     hotels: Array<HotelObj>;
 
 }
+
+export interface HotelProps {
+    hotels: Array<HotelObj>;
+}
