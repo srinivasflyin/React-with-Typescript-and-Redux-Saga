@@ -27,6 +27,7 @@ class Filters extends Component<Props> {
 }
 
 const mapStateToProps = (state: AppState) => {
+    console.log('state========', state)
     return {
         filters: state.filters,
     }

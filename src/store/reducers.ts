@@ -14,7 +14,6 @@ const RootReducer: Reducer = function (state = initialState, action: any) {
            return Object.assign({}, state, { filters: { ...action.filters } })
             break
         case GET_HOTELS:
-            console.log('get hotels')
             return state.hotels;
             break;
         case SET_HOTELS:

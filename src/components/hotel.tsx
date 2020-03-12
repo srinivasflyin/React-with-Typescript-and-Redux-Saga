@@ -8,12 +8,6 @@ import { connect } from 'react-redux'
     constructor(props: HotelProps) {
         super(props)
     }
-    // getHotels() {
-    //     //this.hotels = this.$store.getters.GET_HOTELS;
-    //     if (this.filteredHotels.length === 0) {
-    //       this.filteredHotels = JSON.parse(JSON.stringify(this.hotels));
-    //     }
-    //   }
       searchHotels(filters: FilterClass) {
         const htlValues: Array<any> = [];
     

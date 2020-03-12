@@ -1,35 +1,11 @@
-import { ThunkDispatch } from 'redux-thunk'
-import { AnyAction } from 'redux';
-import { SET_HOTELS, SET_FILTERS } from './types'
+import { GET_HOTELS, GET_FILTERS, HOTEL_DATA_REQUESTED, FILTER_DATA_REQUESTED } from './types'
 import { HotelObj } from '../shared/classesAndInterfaces'
-import axios from 'axios'
-export function setHotels(hotels: Array<HotelObj>) {
-    return {
-        type: SET_HOTELS,
-        hotels
-    }
-}
-
-
-
 export function getHotels() {
-    return function (dispatch: ThunkDispatch<{}, {}, AnyAction>) {
-        return axios.get('./tempData/hotels.json').then((response: any) => {
-            const hotels = response.data.hotels
-            dispatch({ type: SET_HOTELS, hotels })
-        })
-
-    }
+    return { type: HOTEL_DATA_REQUESTED }
 }
 
 export function getFilters() {
-    return function (dispatch: ThunkDispatch<{}, {}, AnyAction>) {
-        return axios.get('./tempData/filters.json').then((response: any) => {
-            const filters = response.data
-            dispatch({
-                type: SET_FILTERS,
-                filters
-            })
-        })
+    return {
+        type: FILTER_DATA_REQUESTED
     }
 }
