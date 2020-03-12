@@ -2,6 +2,12 @@
   "name": "react-typescript",
   "version": "0.1.0",
   "private": true,
+  "keywords":["react","typescript","react typescript","redux", "redux saga", "react example"],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/srinivasflyin/React-with-Typescript-and-Redux-Saga.git"
+  },
+  "author": "Srinivas S <sriniwas.sunkara95@gmail.com>",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
