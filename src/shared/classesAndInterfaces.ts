@@ -63,3 +63,11 @@ export interface Props {
 export interface HotelProps {
     hotels: Array<HotelObj>;
 }
+
+
+export interface FilterProps {
+    filters: FilterClass;
+}
+
+
+

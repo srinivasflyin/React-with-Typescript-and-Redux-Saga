@@ -5,12 +5,8 @@ import { connect } from 'react-redux'
   class Hotel extends Component<HotelProps> {
     public hotels: Array<any> = []
     public filteredHotels: Array<any> = [];
-    constructor(props: HotelProps) {
-        super(props)
-    }
       searchHotels(filters: FilterClass) {
         const htlValues: Array<any> = [];
-    
         if (Object.keys(filters.countries).length > 0 || Object.keys(filters.cities).length > 0) {
           this.hotels.forEach(item => {
             if (

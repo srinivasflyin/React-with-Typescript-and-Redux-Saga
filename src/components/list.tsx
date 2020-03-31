@@ -1,5 +1,5 @@
 
-import React, { Component } from 'react';
+import React from 'react';
 import { ListProps, HotelObj } from '../shared/classesAndInterfaces'
 import Item  from './item'
 
