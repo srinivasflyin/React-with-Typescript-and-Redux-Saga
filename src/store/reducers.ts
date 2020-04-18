@@ -12,15 +12,12 @@ const RootReducer: Reducer = function (state = initialState, action: any) {
     switch (action.type) {
         case SET_FILTERS:
            return Object.assign({}, state, { filters: { ...action.filters } })
-            break
         case GET_HOTELS:
             return state.hotels;
-            break;
         case SET_HOTELS:
-           return   Object.assign({}, state, {
-                hotels: state.hotels.concat(action.hotels)
+           return   Object.assign({}, state, { 
+                hotels: [...state.hotels,...action.hotels]
             })
-            break;
         default:
             return state;
     }

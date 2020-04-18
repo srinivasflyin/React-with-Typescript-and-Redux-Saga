@@ -4,6 +4,7 @@ import { FilterClass, Props, HotelObj } from '../../shared/classesAndInterfaces'
 //import { RouteComponentProps } from 'react-router-dom'
 import { connect } from 'react-redux';
 import { getFilters, getHotels } from '../../store/actions'
+import { ErrorBoundary } from '../../errorBoundary'
 const Hotel = lazy(() => import('../../components/hotel'))
 const Filters = lazy(() => import('../../components/filters'))
 
@@ -18,10 +19,12 @@ class Home extends Component<Props>{
     }
     render() {
         return (<div>
+            <ErrorBoundary>
             <Suspense fallback={<h1>Still Loading…</h1>}>
-            <Filters filters={this.filterObj} />
-            <Hotel hotels={this.hotels} />
+                <Filters filters={this.filterObj} />
+                <Hotel hotels={this.hotels} />
             </Suspense>
+            </ErrorBoundary>
         </div>)
     }
     componentDidMount() {
