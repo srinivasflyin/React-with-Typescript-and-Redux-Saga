@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 
 class Filters extends Component<FilterProps> {
     render() {
-        const Li = this.props.filters.countries.map((item) => {
+        const Li = this.props.filters.countries.map(item=> {
             return (<li key={item.name}>{item.name}</li>)
         })
         return (<div>
